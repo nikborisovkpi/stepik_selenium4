@@ -21,3 +21,20 @@ class ProductPage(BasePage):
             alert.accept()
         except NoAlertPresentException:
             print("No second alert presented")
+
+    def check_product_name(self):
+        pr_name = self.browser.find_element(*ProductPageLocators.PRODUCT_NAME)
+        bas_name = self.browser.find_element(*ProductPageLocators.BASKET_NAME)
+        assert pr_name.text == bas_name.text,\
+            "Selected product was not added to basket"
+
+    def check_product_price(self):
+        pr_price = self.browser.find_element(*ProductPageLocators.PRODUCT_PRICE)
+        bas_price = self.browser.find_element(*ProductPageLocators.PRODUCT_PRICE)
+        assert pr_price.text == bas_price.text, \
+            "Basket price is not equal selected product price"
+
+
+    def check_price_at_all(self):
+        self.check_product_name()
+        self.check_product_price()
