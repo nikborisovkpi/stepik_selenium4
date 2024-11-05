@@ -34,10 +34,10 @@ class ProductPage(BasePage):
         assert pr_price.text == bas_price.text, \
             "Basket price is not equal selected product price"
 
-
     def check_price_at_all(self):
         self.check_product_name()
         self.check_product_price()
+
 
     def should_not_be_success_message(self):
         assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), \
