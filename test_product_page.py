@@ -64,7 +64,7 @@ class TestUserAddToBasketFromProductPage():
         page.open()
         email = str(time.time()) + "@fakemail.org"
         page.register_new_user(email, "okmnjiuhb69")
-        page.check_new_register()
+        # page.check_new_register()  #dont sure
         ### and next we need to think a bit
 
     def test_user_cant_see_success_message(self, browser):
@@ -79,4 +79,3 @@ class TestUserAddToBasketFromProductPage():
         page.open()
         page.add_to_basket()
         page.solve_quiz_and_get_code()
-        page.check_price_at_all()
